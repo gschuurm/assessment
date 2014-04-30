@@ -80,4 +80,4 @@ Convert the following CSS into either a LESS or SASS file:
 ```
 
 ###Task F3:
-Write an application that will call the Google Images API - https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=giftcards.com&rsz=8?v=1.0&q=giftcards.com&rsz=8 and show the 8 images that are contained in the responseData
+Write an HTML5 application that will call the Google Images API - https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=giftcards.com&rsz=8?v=1.0&q=giftcards.com&rsz=8 and show the 8 images that are contained in the responseData
