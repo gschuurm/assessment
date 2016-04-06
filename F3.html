@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>F3 Google Custom Search API</title>
+    <script src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+     <div>
+	<script>
+        //generated from Google Custom Search Engine
+	  (function() {
+	    var cx = '010158672883662414664:bpwk-zetpvi';
+	    var gcse = document.createElement('script');
+	    gcse.type = 'text/javascript';
+	    gcse.async = true;
+	    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		'//cse.google.com/cse.js?cx=' + cx;
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(gcse, s);
+	  })();
+	</script>
+        <gcse:search></gcse:search>
+    </div>  
+
+        <script>
+	    var url = "http://www.google.com/cse?";
+            var type = "searchtype=image";
+	    var start = "start=0";
+	    var num = "&num=8";
+	    var keyword = "&q=giftcards.com";
+	    var filetype = "&as_filetype=png";
+	    var client = "&client=google-csbe";
+	    var output = "&output=xml_no_dtd";
+	    var cseID = "&cx=010158672883662414664:bpwk-zetpvi"; //my cse ID 
+	    var xhttp = new XMLHttpRequest();
+            var request = url + type + start + num + keyword + filetype + client + output + cseID;
+	    xhttp.open("GET", request, true); //do an HTTP GET to get the images requested 
+	    xhttp.send();
+
+        </script>
+      <div>Here is where the results should display: </div>
+    </body>
+</html>
+
