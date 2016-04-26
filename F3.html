@@ -7,7 +7,7 @@
         <script>
 	(function($) {
 	    $(function() {
-		    //construct the url and query (first 8 jpgs from the search for "gift")
+		    //construct the url and query (first 8 jpgs from the search for "blue")
 		    var url = "https://www.googleapis.com/customsearch/v1?";
 		    var keyword = "&q=blue";
 		    var searchType = "&searchType=image";
@@ -28,6 +28,7 @@
 			    //do an HTTP GET to get the images requested
 			    $.getJSON(url + query, function(data){
  				var photoHtml = '';
+			        //for each image result, log it and add to display in html
  				$.each(data.items, function(i,photo){
 				    console.log(photo);
 				    $('h1').text(photo.title);
@@ -57,10 +58,11 @@
 	    s.parentNode.insertBefore(gcse, s);
 	  })();
 	</script>
+	<h3>Custom Search</h3>
         <gcse:search></gcse:search>
     </div>  
      <div>
-        <a href="#">GET THE IMAGES</a>
+	<h3>Or display image results for "blue" by clicking <a href="#">here</a></h3> 
         <div id="images">
             
         </div>
