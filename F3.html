@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>F3 Google Custom Search API</title>
-    <script src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script>
+	(function($) {
+	    $(function() {
+		    //construct the url and query (first 8 jpgs from the search for "gift")
+		    var url = "https://www.googleapis.com/customsearch/v1?";
+		    var keyword = "&q=blue";
+		    var searchType = "&searchType=image";
+		    var imgType = "&imgType=photo";
+		    var num = "&num=8";
+		    var cseID = "&cx=010158672883662414664%3Abpwk-zetpvi"; //my cse ID  
+		    var key = "&key=AIzaSyCGr0A7G6DmjOraselWRg-2VrHMhR4p-hI";
+		    var query = url 
+			+ keyword 
+			+ searchType 
+		        + imgType 
+			+ num 
+			+ cseID 
+			+ key; 
+		  
+		    //when the link is clicked, get the images from Google Search
+		    $('body a').click(function() {
+			    //do an HTTP GET to get the images requested
+			    $.getJSON(url + query, function(data){
+ 				var photoHtml = '';
+ 				$.each(data.items, function(i,photo){
+				    console.log(photo);
+				    $('h1').text(photo.title);
+				    photoHtml += '<a href="' + photo.link + '">';
+				    photoHtml += '<img src="' + photo.link + '"></a>';
+				});
+ 				$('#images').append(photoHtml);	
+				console.log('here it is: '+photoHtml);
+			    });  
+	  	    });
+            });
+	})(jQuery);
+        </script>
   </head>
   <body style="font-family: Arial;border: 0 none;">
      <div>
@@ -23,24 +59,12 @@
 	</script>
         <gcse:search></gcse:search>
     </div>  
-
-        <script>
-	    var url = "http://www.google.com/cse?";
-            var type = "searchtype=image";
-	    var start = "start=0";
-	    var num = "&num=8";
-	    var keyword = "&q=giftcards.com";
-	    var filetype = "&as_filetype=png";
-	    var client = "&client=google-csbe";
-	    var output = "&output=xml_no_dtd";
-	    var cseID = "&cx=010158672883662414664:bpwk-zetpvi"; //my cse ID 
-	    var xhttp = new XMLHttpRequest();
-            var request = url + type + start + num + keyword + filetype + client + output + cseID;
-	    xhttp.open("GET", request, true); //do an HTTP GET to get the images requested 
-	    xhttp.send();
-
-        </script>
-      <div>Here is where the results should display: </div>
+     <div>
+        <a href="#">GET THE IMAGES</a>
+        <div id="images">
+            
+        </div>
+    </div>  
     </body>
 </html>
 
